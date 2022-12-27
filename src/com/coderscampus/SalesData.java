@@ -11,9 +11,9 @@ public class SalesData {
 	private static final String MODEL_S_FILE = "modelS.csv";
 	private static final String MODEL_X_FILE = "modelX.csv";
 
-	private List<Sale> model3Sales;
-	private List<Sale> modelSSales;
-	private List<Sale> modelXSales;
+	private List<Sales> model3Sales;
+	private List<Sales> modelSSales;
+	private List<Sales> modelXSales;
 
 	public SalesData() {
 		model3Sales = new ArrayList<>();
@@ -35,7 +35,7 @@ public class SalesData {
 			String[] parts = line.split(",");
 			String date = parts[0];
 			int quantity = Integer.parseInt(parts[1]);
-			Sale sale = new Sale(date, "Model 3", quantity);
+			Sales sale = new Sales(date, "Model 3", quantity);
 			model3Sales.add(sale);
 
 		}
@@ -50,7 +50,7 @@ public class SalesData {
 			String[] parts = line.split(",");
 			String date = parts[0];
 			int quantity = Integer.parseInt(parts[1]);
-			Sale sale = new Sale(date, "Model S", quantity);
+			Sales sale = new Sales(date, "Model S", quantity);
 			modelSSales.add(sale);
 		}
 		reader.close();
@@ -64,21 +64,21 @@ public class SalesData {
 			String[] parts = line.split(",");
 			String date = parts[0];
 			int quantity = Integer.parseInt(parts[1]);
-			Sale sale = new Sale(date, "Model X", quantity);
+			Sales sale = new Sales(date, "Model X", quantity);
 			modelXSales.add(sale);
 		}
 		reader.close();
 	}
 
-	public List<Sale> getModel3Sales() {
+	public List<Sales> getModel3Sales() {
 		return model3Sales;
 	}
 
-	public List<Sale> getModelSSales() {
+	public List<Sales> getModelSSales() {
 		return modelSSales;
 	}
 
-	public List<Sale> getModelXSales() {
+	public List<Sales> getModelXSales() {
 		return modelXSales;
 	}
 }

@@ -18,11 +18,11 @@ public class SalesAnalysis {
 	}
 
 	public void generateModel3Report() {
-		List<Sale> model3Sales = salesData.getModel3Sales();
+		List<Sales> model3Sales = salesData.getModel3Sales();
 
 		// Group the sales by year and month
 		Map<YearMonth, Integer> monthlySales = model3Sales.stream().collect(Collectors
-				.groupingBy(sale -> YearMonth.parse(sale.date, DATE_FORMAT), Collectors.summingInt(Sale::getQuantity)));
+				.groupingBy(sale -> YearMonth.parse(sale.date, DATE_FORMAT), Collectors.summingInt(Sales::getQuantity)));
 
 		System.out.println("Model 3 Yearly Sales Report");
 		System.out.println("---------------------------");
@@ -35,23 +35,23 @@ public class SalesAnalysis {
 		}
 		System.out.println("");
 		// Find the best and worst month
-		Sale bestMonth = model3Sales.stream().max(Comparator.comparingInt(Sale::getQuantity))
+		Sales bestMonth = model3Sales.stream().max(Comparator.comparingInt(Sales::getQuantity))
 				.orElseThrow(() -> new RuntimeException("No sales data found"));
 		System.out.println("The best month for Model 3 was: " + bestMonth.date);
 
-		Sale worstMonth = model3Sales.stream().min(Comparator.comparingInt(Sale::getQuantity))
+		Sales worstMonth = model3Sales.stream().min(Comparator.comparingInt(Sales::getQuantity))
 				.orElseThrow(() -> new RuntimeException("No sales data found"));
 		System.out.println("The worst month for Model 3 was: " + worstMonth.date);
 		System.out.println("");
 	}
 
 	public void generateModelSReport() {
-		  List<Sale> modelSSales = salesData.getModelSSales();
+		  List<Sales> modelSSales = salesData.getModelSSales();
 
 		  // Group the sales by year and month
 		  Map<YearMonth, Integer> monthlySales = modelSSales.stream()
 		      .collect(Collectors.groupingBy(sale -> YearMonth.parse(sale.date, DATE_FORMAT),
-		                                     Collectors.summingInt(Sale::getQuantity)));
+		                                     Collectors.summingInt(Sales::getQuantity)));
 
 		  System.out.println("Model S Yearly Sales Report");
 		  System.out.println("---------------------------");
@@ -64,11 +64,11 @@ public class SalesAnalysis {
 		  }
 		  System.out.println("");
 		  // Find the best and worst month
-		  Sale bestMonth = modelSSales.stream().max(Comparator.comparingInt(Sale::getQuantity))
+		  Sales bestMonth = modelSSales.stream().max(Comparator.comparingInt(Sales::getQuantity))
 		      .orElseThrow(() -> new RuntimeException("No sales data found"));
 		  System.out.println("The best month for Model 3 was: " + bestMonth.date);
 
-		  Sale worstMonth = modelSSales.stream().min(Comparator.comparingInt(Sale::getQuantity))
+		  Sales worstMonth = modelSSales.stream().min(Comparator.comparingInt(Sales::getQuantity))
 		      .orElseThrow(() -> new RuntimeException("No sales data found"));
 		  System.out.println("The worst month for Model 3 was: " + worstMonth.date);
 		  System.out.println("");
@@ -76,12 +76,12 @@ public class SalesAnalysis {
 
 
 	public void generateModelXReport() {
-		  List<Sale> modelXSales = salesData.getModelSSales();
+		  List<Sales> modelXSales = salesData.getModelSSales();
 
 		  // Group the sales by year and month
 		  Map<YearMonth, Integer> monthlySales = modelXSales.stream()
 		      .collect(Collectors.groupingBy(sale -> YearMonth.parse(sale.date, DATE_FORMAT),
-		                                     Collectors.summingInt(Sale::getQuantity)));
+		                                     Collectors.summingInt(Sales::getQuantity)));
 
 		  System.out.println("Model X Yearly Sales Report");
 		  System.out.println("---------------------------");
@@ -94,11 +94,11 @@ public class SalesAnalysis {
 		  }
 		  System.out.println("");
 		  // Find the best and worst month
-		  Sale bestMonth = modelXSales.stream().max(Comparator.comparingInt(Sale::getQuantity))
+		  Sales bestMonth = modelXSales.stream().max(Comparator.comparingInt(Sales::getQuantity))
 		      .orElseThrow(() -> new RuntimeException("No sales data found"));
 		  System.out.println("The best month for Model X was: " + bestMonth.date);
 
-		  Sale worstMonth = modelXSales.stream().min(Comparator.comparingInt(Sale::getQuantity))
+		  Sales worstMonth = modelXSales.stream().min(Comparator.comparingInt(Sales::getQuantity))
 		      .orElseThrow(() -> new RuntimeException("No sales data found"));
 		  System.out.println("The worst month for Model X was: " + worstMonth.date);
 		  System.out.println("");
